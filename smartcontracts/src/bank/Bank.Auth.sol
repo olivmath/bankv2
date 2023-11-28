@@ -35,10 +35,4 @@ contract Auth is Storage {
             revert ZeroAddress();
         }
     }
-
-    function checkLocktime(uint256 locktime) internal view {
-        if (locktime <= block.number) {
-            revert LocktimeTooLow();
-        }
-    }
 }

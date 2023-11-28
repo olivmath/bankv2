@@ -61,14 +61,4 @@ contract AuthTest is BankSetup {
         vm.expectRevert(Errors.ZeroAddress.selector);
         bank.createEmployee(address(0), testBudge, testLocktime);
     }
-
-    function test_cannot_create_employee_low_locktime() public {
-        address testEmployee = address(1);
-        uint256 testBudge = 2 * 10e18;
-        uint256 testLocktime = block.number;
-
-        vm.prank(controller);
-        vm.expectRevert(Errors.LocktimeTooLow.selector);
-        bank.createEmployee(testEmployee, testBudge, testLocktime);
-    }
 }

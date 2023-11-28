@@ -12,7 +12,6 @@ contract EmployeeCrud is Auth {
         checkZeroAddress(_employee);
         checkSalary(_salary);
         employeeMustNotExist(_employee);
-        checkLocktime(_locktime);
 
         uint256 initialBonus = 0;
         employees[_employee] = Employee(_employee, _salary, _locktime, block.number + _locktime, initialBonus);
@@ -26,7 +25,6 @@ contract EmployeeCrud is Auth {
         checkZeroAddress(_employee);
         checkSalary(_salary);
         employeeMustExist(_employee);
-        checkLocktime(_locktime);
 
         employees[_employee].salary = _salary;
         employees[_employee].locktime = _locktime;
