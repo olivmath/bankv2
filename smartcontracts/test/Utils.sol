@@ -12,6 +12,8 @@ contract Utils is Test {
         address payable[] memory users = new address payable[](userNum);
         for (uint32 i = 0; i < userNum; i++) {
             (address user,) = deriveRememberKey(mnemonic, i);
+            console2.log("Index: ", i);
+            console2.log("Wallet: ", user);
             vm.deal(user, 10000 ether);
             users[i] = payable(user);
         }
